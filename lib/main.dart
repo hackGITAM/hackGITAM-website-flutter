@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hack_gitam/theme/main_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,9 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'hackGITAM',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: MainTheme.darkTheme,
       home: const MyHomePage(),
     );
   }
@@ -104,7 +103,6 @@ class _MyHomePageState extends State<MyHomePage> {
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               color: const Color(0xff3B4252),
-              
             )
           ],
         ),
