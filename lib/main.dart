@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:hack_gitam/theme/main_theme.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,80 +32,116 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
     return Scaffold(
-      backgroundColor: const Color(0xff2E3440),
+      backgroundColor: Theme.of(context).backgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 100),
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              // color: const Color(0xff2E3440),
-              child: Column(
-                children: [
-                  const Spacer(
-                    flex: 1,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 50),
-                    child: Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text(
-                              "hackGITAM 2020",
-                              style: TextStyle(
-                                  color: Color(0xffECEFF4),
-                                  fontSize: 50,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "24hrs hackathon",
-                              style: TextStyle(
-                                color: Color(0xffD8DEE9),
-                                fontSize: 30,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              "COMING SOON!",
-                              style: TextStyle(
-                                color: Color(0xffD8DEE9),
-                                fontSize: 25,
-                              ),
-                            )
-                          ],
-                        ),
-                        const Spacer(
-                          flex: 2,
-                        ),
-                        Container(
-                          height: 50,
-                          width: 50,
-                          color: Colors.redAccent,
-                        ),
-                        const Spacer(
-                          flex: 1,
-                        ),
-                      ],
+            Stack(
+              children: [
+                ShaderMask(
+                  shaderCallback: (bounds) => const LinearGradient(
+                          colors: [Colors.black, Colors.transparent],
+                          begin: Alignment.topCenter,
+                          end: Alignment(0.0, 0.7))
+                      .createShader(bounds),
+                  blendMode: BlendMode.dstIn,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: const AssetImage('res/imgs/vaporwave.png'),
+                          fit: BoxFit.cover,
+                          colorFilter: ColorFilter.mode(
+                              Theme.of(context).backgroundColor.withAlpha(226),
+                              BlendMode.color)),
                     ),
+                    height: MediaQuery.of(context).size.height + 140,
+                    width: MediaQuery.of(context).size.width,
                   ),
-                  const Spacer(
-                    flex: 1,
-                  )
-                ],
-              ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(
+                      top: (size.width > 1400) ? 800 / 4.5 : 500 / 2.5),
+                  height: MediaQuery.of(context).size.height + 100,
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
+                    children: [
+                      GradientText(
+                        "hackGITAM",
+                        gradientDirection: GradientDirection.ttb,
+                        colors: [
+                          Theme.of(context).indicatorColor,
+                          Theme.of(context).indicatorColor.withAlpha(10)
+                        ],
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline1!
+                            .copyWith(fontSize: (size.width >= 1350) ? 70 : 60),
+                      ),
+                      GradientText(
+                        "Hackathon Event",
+                        gradientDirection: GradientDirection.ttb,
+                        colors: [
+                          Theme.of(context).shadowColor,
+                          Theme.of(context).shadowColor.withAlpha(10)
+                        ],
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline2!
+                            .copyWith(fontSize: (size.width >= 1350) ? 66 : 56),
+                      ),
+                      const Padding(padding: EdgeInsets.only(top: 120)),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          TextButton(
+                              onPressed: () => {}, child: const Text("HOME")),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                          ),
+                          TextButton(
+                              onPressed: () => {}, child: const Text("HOME")),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                          ),
+                          TextButton(
+                            onPressed: () => {},
+                            style: TextButton.styleFrom(
+                              minimumSize: const Size(217, 69),
+                              textStyle: const TextStyle(
+                                fontFamily: "HandelGothic",
+                                fontSize: 30,
+                                color: Color(0xFF2E3440),
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              foregroundColor: const Color(0xFF2E3440),
+                              //backgroundColor: const Color(0xFFD08770),
+                              backgroundColor: const Color(0xFF81A1C1),
+                            ),
+                            child: const Text("HOME"),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                          ),
+                          TextButton(
+                              onPressed: () => {}, child: const Text("HOME")),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 100),
-              height: MediaQuery.of(context).size.height,
+              height: MediaQuery.of(context).size.height - 10,
               width: MediaQuery.of(context).size.width,
               color: const Color(0xff3B4252),
-            )
+            ),
           ],
         ),
       ),
