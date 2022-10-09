@@ -77,44 +77,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: Theme.of(context).textTheme.headline2,
                       ),
                       const Padding(padding: EdgeInsets.only(top: 120)),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          TextButton(
-                              onPressed: () => {}, child: const Text("HOME")),
-                          const Padding(
-                            padding: EdgeInsets.only(left: 10, right: 10),
-                          ),
-                          TextButton(
-                              onPressed: () => {}, child: const Text("HOME")),
-                          const Padding(
-                            padding: EdgeInsets.only(left: 10, right: 10),
-                          ),
-                          TextButton(
-                            onPressed: () => {},
-                            style: TextButton.styleFrom(
-                              minimumSize: const Size(217, 69),
-                              textStyle: const TextStyle(
-                                fontFamily: "HandelGothic",
-                                fontSize: 30,
-                                color: Color(0xFF2E3440),
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              foregroundColor: const Color(0xFF2E3440),
-                              //backgroundColor: const Color(0xFFD08770),
-                              backgroundColor: const Color(0xFF81A1C1),
-                            ),
-                            child: const Text("HOME"),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(left: 10, right: 10),
-                          ),
-                          TextButton(
-                              onPressed: () => {}, child: const Text("HOME")),
-                        ],
-                      ),
                     ],
                   ),
                 ),
