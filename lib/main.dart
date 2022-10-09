@@ -68,29 +68,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: MediaQuery.of(context).size.width,
                   child: Column(
                     children: [
-                      GradientText(
+                      Text(
                         "hackGITAM",
-                        gradientDirection: GradientDirection.ttb,
-                        colors: [
-                          Theme.of(context).indicatorColor,
-                          Theme.of(context).indicatorColor.withAlpha(10)
-                        ],
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline1!
-                            .copyWith(fontSize: (size.width >= 1350) ? 70 : 60),
+                        style: Theme.of(context).textTheme.headline1,
                       ),
-                      GradientText(
+                      Text(
                         "Hackathon Event",
-                        gradientDirection: GradientDirection.ttb,
-                        colors: [
-                          Theme.of(context).shadowColor,
-                          Theme.of(context).shadowColor.withAlpha(10)
-                        ],
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline2!
-                            .copyWith(fontSize: (size.width >= 1350) ? 66 : 56),
+                        style: Theme.of(context).textTheme.headline2,
                       ),
                       const Padding(padding: EdgeInsets.only(top: 120)),
                       Row(
